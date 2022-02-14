@@ -1,11 +1,13 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-
+import Head from "next/head"
+import styles from "../styles/Home.module.css"
+ 
 // The Storyblok Client
 import Storyblok from "../lib/storyblok"
+import DynamicComponent from '../components/DynamicComponent'
  
 export default function Home(props) {
+  const story = props.story
+ 
   return (
     <div className={styles.container}>
       <Head>
@@ -15,13 +17,11 @@ export default function Home(props) {
  
       <header>
         <h1>
-          { props.story ? props.story.name : 'My Site' }
+          { story ? story.name : 'My Site' }
         </h1>
       </header>
  
-      <main>
-        
-      </main>
+       <DynamicComponent blok={story.content} />
     </div>
   )
 }
@@ -31,7 +31,7 @@ export async function getStaticProps({ preview = false }) {
   let slug = "home";
   // load the published content outside of the preview mode
   let sbParams = {
-    version: "draft", // or 'published'
+    version: "published", // or 'draft'
   };
  
   if (preview) {
