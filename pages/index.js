@@ -1,12 +1,15 @@
-import Head from "next/head"
-import styles from "../styles/Home.module.css"
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
  
-// The Storyblok Client
-import Storyblok from "../lib/storyblok"
-import DynamicComponent from '../components/DynamicComponent'
+// The Storyblok Client & hook
+import Storyblok, { useStoryblok } from "../lib/storyblok";
+import DynamicComponent from "../components/DynamicComponent";
  
-export default function Home(props) {
-  const story = props.story
+export default function Home({ story, preview }) {
+  const enableBridge = true; // load the storyblok bridge everywhere
+  // const enableBridge = preview; // enable bridge only in prevew mode
+ 
+  story = useStoryblok(story, enableBridge);
  
   return (
     <div className={styles.container}>
@@ -16,14 +19,12 @@ export default function Home(props) {
       </Head>
  
       <header>
-        <h1>
-          { story ? story.name : 'My Site' }
-        </h1>
+        <h1>{story ? story.name : "My Site"}</h1>
       </header>
  
-       <DynamicComponent blok={story.content} />
+      <DynamicComponent blok={story.content} />
     </div>
-  )
+  );
 }
  
 export async function getStaticProps({ preview = false }) {
