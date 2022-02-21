@@ -3,9 +3,6 @@ import Grid from "./Grid";
 import Feature from "./Feature";
 import Page from "./Page";
 import { Homepage } from "./Homepage";
-import { HomepageCard } from "./HomepageCard";
-import { HomepageIntro } from "./HomepageIntro";
-import { HomepageGrid } from "./HomepageGrid";
  
 // resolve Storyblok components to Next.js components
 const Components = {
@@ -14,9 +11,6 @@ const Components = {
   feature: Feature,
   page: Page,
   Homepage: Homepage,
-  HomepageCard: HomepageCard,
-  HomepageIntro: HomepageIntro,
-  HomepageGrid: HomepageGrid,
 };
 
 const DynamicComponent = ({ blok }) => {
