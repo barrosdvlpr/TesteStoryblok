@@ -10,7 +10,7 @@ export const HomepageFooter = (blok) => {
       <footer className={styles.footer}>
         <Link href={link.cached_url}>
             <a {...sbEditable(blok)}>
-              <p>{description}</p>
+              <h4><spam>{description}</spam></h4>
             </a>       
         </Link> 
       </footer>
