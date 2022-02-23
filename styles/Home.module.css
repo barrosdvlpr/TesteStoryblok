@@ -15,8 +15,9 @@
 .footer {
   display: flex;
   flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
+  padding-top: 2rem;
+  padding-bottom: -3rem;
+  /* border-top: 1px solid #eaeaea; */
   justify-content: center;
   align-items: center;
 }
@@ -37,6 +38,15 @@
 .title a:focus,
 .title a:active {
   text-decoration: underline;
+}
+
+.intro{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -3rem;
+  margin-bottom: -3rem;
+  /* margin: 0 auto; */
 }
 
 .title {
@@ -63,6 +73,12 @@
   font-size: 1.1rem;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.flex {
+  max-width: 80%;
+  display: flex;
+  justify-content: center;
 }
 
 .grid {
@@ -112,5 +128,10 @@
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+  .intro{
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
   }
 }

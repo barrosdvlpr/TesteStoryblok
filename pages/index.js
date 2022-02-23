@@ -13,6 +13,8 @@ export default function HomeRoute({ story, preview }) {
 
   console.log("HomeRoute", story);
 
+  // return null;
+
   return (
     <div className={styles.container}>
       <Head>
@@ -53,6 +55,7 @@ export async function getStaticProps({ preview = true }) {
     revalidate: 3600, // revalidate every hour
   };
 }
+
 
 // import Head from "next/head"
 // import styles from "../styles/Home.module.css"
@@ -105,6 +108,7 @@ export async function getStaticProps({ preview = true }) {
 //     revalidate: 3600, // revalidate every hour
 //   };
 // }
+
 
 // export default function Home() {
 //   return (
