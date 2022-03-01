@@ -1,10 +1,25 @@
 import React from "react";
 import { sbEditable } from "@storyblok/storyblok-editable";
+import styles from "../styles/Home.module.css"
  
-const Feature = ({ blok }) => (
-  <div className="column feature" {...sbEditable(blok)}>
-    {blok.name}
-  </div>
-);
+
+export const Feature = ( blok ) => {
+  const { Feature } = blok;
+  
+
+  return (
+    <div>
+      <h2 {...sbEditable(blok)}>
+        {Feature}
+      </h2>
+    </div>
+  );
+};
+
+
+// export const Feature = ({ blok }) => (
+//   <div {...sbEditable(blok)}>
+//     {blok.name}
+//   </div>
+// );
  
-export default Feature;

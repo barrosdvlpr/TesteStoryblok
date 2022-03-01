@@ -10,6 +10,8 @@ export default function ShopRoute({ story, preview }) {
   // const enableBridge = preview; // enable bridge only in prevew mode
   story = useStoryblok(story, enableBridge);
 
+  console.log("ShopRoute", story);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -41,7 +43,7 @@ export async function getStaticProps({ params, preview = false }) {
     sbParams.cv = Date.now();
   }
 
-  let { data } = await Storyblok.get(`cdn/stories/shop/${slug}`, sbParams);
+  let { data } = await Storyblok.get(`cdn/stories/content/${slug}`, sbParams);
 
   return {
     props: {
@@ -55,7 +57,7 @@ export async function getStaticProps({ params, preview = false }) {
 
 export async function getStaticPaths() {
   let { data } = await Storyblok.get("cdn/links/", {
-    starts_with: "shop",
+    starts_with: "content",
   });
 
   let paths = [];
@@ -69,7 +71,7 @@ export async function getStaticPaths() {
     const slug = data.links[linkKey].slug;
 
     // remove the pages part from the slug
-    let newSlug = slug.replace("shop", "");
+    let newSlug = slug.replace("content", "");
     let splittedSlug = newSlug.split("/").filter((_) => _ !== "");
 
     paths.push({ params: { slug: splittedSlug } });

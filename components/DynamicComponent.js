@@ -1,8 +1,9 @@
-import Teaser from "./Teaser";
+import { Teaser } from "./Teaser";
 import Grid from "./Grid";
-import Feature from "./Feature";
+import { Feature } from "./Feature";
 import Page from "./Page";
 import { Homepage } from "./Homepage";
+import { Documentation } from "./Documentation";
  
 // resolve Storyblok components to Next.js components
 const Components = {
@@ -11,6 +12,7 @@ const Components = {
   feature: Feature,
   page: Page,
   Homepage: Homepage,
+  Documentation: Documentation,
 };
 
 const DynamicComponent = ({ blok }) => {
